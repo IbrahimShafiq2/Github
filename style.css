@@ -1,0 +1,328 @@
+@import url('https://fonts.googleapis.com/css2?family=Wendy+One&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Courier New", Courier, monospace;
+    font-family: 'Wendy One', sans-serif;
+}
+
+:root {
+    --main-color: #365486;
+}
+
+body {
+    background-color: #dedede;
+}
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    text-align: center;
+    padding: 20px 0;
+    background-color: #fff;
+}
+
+.github-search-app {
+    padding: 40px 80px;
+    display: flex;
+    align-items: flex-start;
+    gap: 80px;
+
+    .app-controls {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        position: relative;
+        z-index: 2;
+
+        gap: 30px;
+
+        .search-section {
+            padding: 15px 30px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background-color: var(--main-color);
+
+            .search-header {
+                background-color: #000;
+                padding: 10px 20px;
+
+                h2 {
+                    color: #fff;
+                    font-size: 18px;
+                }
+            }
+
+            .search-input {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+
+                p {
+                    font-size: 18px;
+                    font-weight: 500;
+                    color: #fff;
+                }
+
+                input {
+                    padding: 10px;
+                    font-weight: normal;
+                    outline: none;
+                    border: none;
+                }
+
+                button {
+                    width: fit-content;
+                    display: block;
+                    margin: 0 auto;
+                    padding: 5px 10px;
+                    border: none;
+                    outline: none;
+                    background-color: #000;
+                    color: #fff;
+                    font-weight: bold;
+                    font-size: 16px;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .topics-section {
+            padding: 15px 30px;
+            overflow: hidden;
+            background-color: var(--main-color);
+            color: #000;
+            display: flex;
+            gap: 20px;
+            flex-direction: column;
+
+            .topics-header {
+                background-color: #000;
+                padding: 10px 20px;
+                text-align: center;
+
+                h2 {
+                    color: #fff;
+                    font-size: 18px;
+                }
+            }
+
+            .topics-content {
+                ul {
+                    list-style: none;
+                    display: flex;
+                    gap: 5px;
+                    flex-direction: column;
+                    text-align: center;
+
+                    li {
+                        background-color: #fff;
+                        padding: 10px 0;
+                        cursor: pointer;
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+    .repos-section {
+        position: relative;
+        z-index: 1;
+        .user-details {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 20px;
+            background-color: var(--main-color);
+            padding: 20px 40px;
+            border-radius: 5px;
+            img {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                object-fit: cover;
+                cursor: pointer;
+            }
+
+            .user-info {
+                color: #fff;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                h2 {
+                    color: #000;
+                    font-weight: bolder;
+                    font-size: 30px
+                }
+
+                .user-stats {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                    ruby {
+                        font-weight: bold;
+                        font-size: 20px;
+                        rt {
+                            color: #000;
+                            font-size: 20px;
+                        }
+                    }
+
+                    .stats {
+                        display: flex;
+                        justify-content: center;
+                        gap: 40px;
+                    }
+
+                    .user-bio {
+                        display: block;
+                    }
+                }
+            }
+        }
+
+        flex: 2;
+        .repo {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            .repo-searched-item {
+                width: fit-content;
+                cursor: pointer;
+                p {
+                    padding: 10px 20px;
+                    border-radius: 3px;
+                    background-color: var(--main-color);
+                    color: #fff;
+                    width: fit-content;
+                }
+            }
+
+            .repos {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                width: 100%;
+
+                .repo-item {
+                    position: relative;
+                    padding: 14px 20px;
+                    background-color: #fff;
+                    color: #000;
+                    text-decoration: none;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 100%;
+                    transition: 0.3s linear;
+
+                    span, i {
+                        font-size: 20px;
+                        font-weight: bold;
+                    }
+
+                    .repo-details {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 20px;
+                    }
+
+                    div {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+
+                        &.repo-issues i {
+                            color: #f00;
+                        }
+
+                        &.repo-watchers i {
+                            color: var(--main-color)
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.modal, .img-magnifier {
+    z-index: 3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s linear;
+
+    
+    &.d-flex {
+        transform: scale(1);
+    }
+
+    &.d-none {
+        transform: scale(0);
+    }
+}
+
+.alert-content {
+    background-color: #fff;
+    padding: 20px 40px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    transform: scale(1);
+
+    .content {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        p {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    }
+
+    i {
+        font-size: 20px;
+        font-weight: bold;
+        color: #f00;
+        cursor: pointer;
+    }
+}
+
+.img-preview {
+    width: 500px;
+    height: 500px;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+
+    i {
+        cursor: pointer;
+        font-size: 40px;
+        color: #f00;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-weight: bolder;
+    }
+}
